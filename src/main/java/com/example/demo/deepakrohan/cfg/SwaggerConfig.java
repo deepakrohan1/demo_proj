@@ -31,7 +31,7 @@ public class SwaggerConfig {
 	@SuppressWarnings("unchecked")
 	private Predicate<String> paths() {
 		return Predicates.or(
-				regex("/activities.*"));
+				regex("/posts.*"));
 	}
 
 	

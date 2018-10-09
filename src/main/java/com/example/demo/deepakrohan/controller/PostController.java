@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,6 +43,21 @@ public class PostController {
 			//throw new StudentNotFoundException("id-" + id);
 
 		return post.get();
+	}
+	
+	@PutMapping("/posts/{id}")
+	public ResponseEntity<Object> updateStudent(@RequestBody Post post, @PathVariable long id) {
+
+		Optional<Post> postOptional = postRepository.findById(id);
+
+		if (!postOptional.isPresent())
+			return ResponseEntity.notFound().build();
+
+		post.setId(id);
+		
+		postRepository.save(post);
+
+		return ResponseEntity.noContent().build();
 	}
 	
 	@PostMapping("/posts")
