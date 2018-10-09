@@ -21,7 +21,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Value("${rogs.security.enabled:true}")
     boolean enableSecurity;
 
-    @Autowired
+    @SuppressWarnings("deprecation")
+	@Autowired
     private void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         if (user == null)
             user="user";
