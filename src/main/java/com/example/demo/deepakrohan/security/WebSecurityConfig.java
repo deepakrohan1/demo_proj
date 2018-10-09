@@ -40,6 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configure(HttpSecurity http) throws Exception {
 
         if (enableSecurity){
+        	http.headers().frameOptions().disable();
             http
                     .authorizeRequests()
                     .antMatchers(HttpMethod.GET, "/**").permitAll()

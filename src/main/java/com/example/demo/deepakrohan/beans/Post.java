@@ -35,6 +35,11 @@ public class Post {
 	public void setBodyPost(String bodyPost) {
 		this.bodyPost = bodyPost;
 	}
+
+
+	
+	
+	
 	
 	
 	
