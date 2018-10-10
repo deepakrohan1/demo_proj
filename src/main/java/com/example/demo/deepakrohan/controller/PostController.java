@@ -46,7 +46,7 @@ public class PostController {
 	}
 	
 	@PutMapping("/posts/{id}")
-	public ResponseEntity<Object> updateStudent(@RequestBody Post post, @PathVariable long id) {
+	public ResponseEntity<Object> updatePost(@RequestBody Post post, @PathVariable long id) {
 
 		Optional<Post> postOptional = postRepository.findById(id);
 
